@@ -13,7 +13,6 @@
         　　return returnValue;
     　　}
 　　}
-　　var typeid = request("type");
 　　var id = request("id");
 </script>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -44,51 +43,94 @@
     <div data-role="page">
         <div id="header" data-role="header" data-position="fixed" data-fullscreen="false">
             <a href="javascript:;" class="sys sys_return ui-btn-left" data-rel="back"></a>
-            <div class="float float_right">
+            <div class="float float-right">
                 <a data-transition="slideup" data-ajax="false" href="search.html" class="sys sys_search"></a>
                 <a href="javascript:;" class="sys sys_share" id="share-btn"></a>
                 <a data-transition="slideup" data-ajax="false" href="javascript:;" class="sys sys_shopping_cart"></a>
             </div>
         </div>
-        <div data-role="main" class="ui-content">        
+        <div data-role="main" class="ui-content">
             <!-- 广告图部分 banner -->
             <script type="text/javascript">
-                function BannerList($scope) {
-                    $scope.banners = [{
-                        "id": 0,
-                        "img": "temp/activity (1).jpg",
-                        "active" : "active"
-                    },{
-                        "id": 1,
-                        "img": "temp/activity (2).jpg",
-                        "active" : ""
-                    },{
-                        "id": 2,
-                        "img": "temp/activity (3).jpg",
-                        "active" : ""
-                    },{
-                        "id": 3,
-                        "img": "temp/activity (3).jpg",
-                        "active" : ""
-                    }];
+                function ProdInfo($scope) {
+                    $scope.prod = {
+                        "title": "顶级珠宝",
+                        "name": "5克拉珠宝项链",
+                        "prize": 699.99,
+                        "imgs": [{
+                            "id": 0,
+                            "src": "temp/activity (1).jpg",
+                            "active": "active"
+                        },{
+                            "id": 0,
+                            "src": "temp/activity (2).jpg",
+                            "active": ""
+                        },{
+                            "id": 0,
+                            "src": "temp/activity (3).jpg",
+                            "active": ""
+                        },{
+                            "id": 0,
+                            "src": "temp/activity (4).jpg",
+                            "active": ""
+                        }]
+                    };
                 };
             </script>
-            <div id="home_banner" class="carousel slide" data-ride="carousel" ng-controller="BannerList">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#home_banner" ng-repeat="banner in banners" data-slide-to="{{banner.id}}" class="{{banner.active}}"></li>
+            <div id="home_banner" class="carousel slide" data-ride="carousel" ng-controller="ProdInfo">
+               <ol class="carousel-indicators">
+                    <li data-target="#home_banner" ng-repeat="img in prod.imgs" data-slide-to="{{img.id}}" class="{{img.active}}"></li>
                 </ol>
-                <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div ng-repeat="banner in banners" class="item {{banner.active }}">
-                        <img src="{{banner.img}}" alt="{{banner.name}}">
+                    <div ng-repeat="img in prod.imgs" class="item {{img.active }}">
+                        <img src="{{img.src}}">
                     </div>
                 </div>
             </div>
+            <section class="screen" ng-controller="ProdInfo">
+                <div class="prize-body">
+                    <span class="name">{{prod.name}}</span>
+                    <span class="pirze">{{prod.prize}}</span>
+                    <a href="orderinfo.html" data-ajax="false" class="btn btn-default float-right" id="paly-btn">立即购买</a>
+                </div>
+            </section>
+            <script type="text/javascript">
+                function Desginer($scope) {
+                    $scope.dger = {
+                        "header":"temp/fans (1).jpg",
+                        "name": "Designer",
+                        "dec": "是国内最早的网络钻石品牌设计中,倡导了钻石文化的传播,坚持完美",
+                        "infos": [{
+                            "img": "temp/info.jpg"
+                        },{
+                            "img": "temp/info.jpg"
+                        },{
+                            "img": "temp/info.jpg"
+                        },{
+                            "img": "temp/info.jpg"
+                        },{
+                            "img": "temp/info.jpg"
+                        }]
+                    }
+                }
+            </script>
+            <section ng-controller="Desginer">
+                <div id="Desginer">
+                    <img src="{{dger.header}}" alt="" class="head">
+                    <name>{{dger.name}}</name>
+                    <p>{{dger.dec}}</p>
+                </div>
+            </section>
+            <section ng-controller="Desginer">
+                <p><title>设计说明</title></p>
+                <img ng-repeat="info in dger.infos" src="{{info.img}}" alt="" class="img-responsive">
+            </section>
         </div>
+        <div id="share"></div>
         <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>
     </div>
 <script type="text/javascript">
+    $("#paly-btn").attr("href", $("#paly-btn").attr("href")+"?id="+id);
     var sharehtml=$.ajax({ type:"GET", url:"system/share.html", async:false }); $("#share").html(sharehtml.responseText);
 </script>
 </body>

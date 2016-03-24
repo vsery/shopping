@@ -36,15 +36,19 @@
                 function drType($scope) {
                     $scope.drtypes = [{
                         "id": 0,
+                        "type": 0,
                         "name": "项链设计师"
                     },{
                         "id": 1,
+                        "type": 1,
                         "name": "雕件摆件设计师"
                     },{
                         "id": 2,
+                        "type": 2,
                         "name": "珠宝设计师"
                     },{
                         "id": 3,
+                        "type": 3,
                         "name": "钻石设计师"
                     }];
                 };
@@ -52,18 +56,22 @@
                 function DesignerList($scope) {
                     $scope.designers = [{
                         "id": 0,
+                        "type": 0,
                         "img": "temp/activity (3).jpg",
                         "active": "active"
                     },{
                         "id": 1,
+                        "type": 1,
                         "img": "temp/activity (4).jpg",
                         "active": ""
                     },{
                         "id": 2,
+                        "type": 2,
                         "img": "temp/activity (5).jpg",
                         "active": ""
                     },{
                         "id": 3,
+                        "type": 3,
                         "img": "temp/activity (4).jpg",
                         "active": ""
                     }];
@@ -73,7 +81,7 @@
                 <section ng-repeat="drtype in drtypes">
                     <p>
                         <title>{{drtype.name}}</title>
-                        <a href="designerlist.html?type={{drtype.id}}" data-ajax="false" class="float_right more">更多</a>
+                        <a href="designerlist.html?type={{drtype.id}}" data-ajax="false" class="float-right more">更多</a>
                     </p>
                     <div class="carousel slide" data-ride="carousel" ng-controller="DesignerList">
                         <ol class="carousel-indicators">

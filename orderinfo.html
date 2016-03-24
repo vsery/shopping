@@ -1,0 +1,117 @@
+<script type="text/javascript">
+    function request(paras){
+    　　var url = location.href;
+    　　var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");
+    　　var paraObj = {}
+    　　for (i=0;j=paraString[i];i++){
+        　　paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);
+    　　}
+    　　var returnValue = paraObj[paras.toLowerCase()];
+    　　if(typeof(returnValue)=="undefined"){
+        　　return "";
+    　　}else{
+        　　return returnValue;
+    　　}
+　　}
+　　var id = request("id");
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- 定制首页 -->
+    <div data-role="page">
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false">
+            <a href="javascript:;" class="sys sys_return ui-btn-left" data-rel="back"></a>
+            <h1 class="text-left">确认订单</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <script type="text/javascript">
+                function OrderInfo($scope) {
+                    $scope.ders = [{
+                        "id": 0,
+                        "name": "5M永恒之约",
+                        "dec": "白5K金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠玉玺宝石",
+                        "img":"temp/prod (4).jpg",
+                        "pirze": 3799
+                    },{
+                        "id": 1,
+                        "name": "6M永恒之约",
+                        "dec": "白7K金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠玉玺宝石",
+                        "img":"temp/prod (6).jpg",
+                        "pirze": 3699
+                    },{
+                        "id": 2,
+                        "name": "7M永恒之约",
+                        "dec": "白10K金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠玉玺宝石",
+                        "img":"temp/prod (7).jpg",
+                        "pirze": 3899
+                    },{
+                        "id": 3,
+                        "name": "8M永恒之约",
+                        "dec": "白18K金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠玉玺宝石",
+                        "img":"temp/prod (1).jpg",
+                        "pirze": 3999
+                    },{
+                        "id": 4,
+                        "name": "8M永恒之约",
+                        "dec": "白18K金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠玉玺宝石",
+                        "img":"temp/prod (5).jpg",
+                        "pirze": 3799
+                    },{
+                        "id": 5,
+                        "name": "8M永恒之约",
+                        "dec": "白18K金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠玉玺宝石",
+                        "img":"temp/prod (2).jpg",
+                        "pirze": 3599
+                    }];
+            };
+            </script>   
+            <section ng-controller="OrderInfo">
+                <div class="OrderInfo" ng-repeat="der in ders" data-id="{{der.id}}">
+                    <img src="{{der.img}}" alt="" class="img">
+                    <name>{{der.name}} <span class="prize">{{der.pirze}}</span></name>
+                    <p>{{der.dec}}</p>
+                </div>
+            </section>
+        </div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false">            
+            <div class="input-group" id="All-Prize">
+                <input type="text" class="form-control" placeholder="总价格:" disabled="disabled">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button">付款</button>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $(".OrderInfo").each(function(index, el) {
+                if($(el).attr("data-id") == id) {
+                    $(this).show().siblings().hide();
+                    $("#All-Prize input[type='text']").val("￥"+$(this).find("span.prize").text());
+                }
+            });
+        })
+    </script>
+</body>
+</html>

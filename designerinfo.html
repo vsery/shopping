@@ -65,7 +65,7 @@
             <script type="text/javascript">
                 function DesignerInfo($scope) {
                     $scope.dgerinfo = {
-                        "id": 11,
+                        "id": 1,
                         "name": "Designer",
                         "img": "temp/activity (5).jpg",
                         "eye": 9139,
@@ -146,7 +146,7 @@
                     <section class="screen" ng-controller="DesignItem">
                         <div class="row">
                             <div class="col-xs-6" ng-repeat="ditem in dgeritems">
-                                <a href="product.html?id={{ditem.id}}">
+                                <a data-ajax="false" href="product.html?id={{ditem.id}}">
                                 <img src="{{ditem.img}}" class="img-responsive" alt="">
                                 <div class="introduce white">
                                     <p>{{ditem.title}}</p>

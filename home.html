@@ -75,7 +75,7 @@
                 };
             </script>
             <section ng-controller="ActivityList">
-                <p><title>活动专区</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <p><title>活动专区</title><a href="javascript:;" class="float-right more">更多</a></p>
                 <div class="row">
                     <div class="col-xs-6" ng-repeat="act in activitys"><img src="{{act.img}}" class="img-responsive" alt=""></div>
                 </div>
@@ -85,20 +85,24 @@
             <script type="text/javascript">
                 function DIYList($scope) {
                     $scope.diys = [{
+                        "id": 0,
                         "name": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "img": "temp/prod (1).jpg"
                     },{
+                        "id": 1,
                         "name": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "img": "temp/prod (2).jpg"
                     }];
                 };
             </script>
             <section ng-controller="DIYList">
-                <p><title>DIY</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <p><title>DIY</title><a href="javascript:;" class="float-right more">更多</a></p>
                 <div class="row">
                     <div class="col-xs-6" ng-repeat="diy in diys">
-                        <img src="{{diy.img}}" class="img-responsive" alt="">
-                        <div class="introduce">{{diy.name}}</div>
+                        <a data-transition="slideup" data-ajax="false" href="product.html?id={{diy.id}}">
+                            <img src="{{diy.img}}" class="img-responsive" alt="">
+                            <div class="introduce">{{diy.name}}</div>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -126,10 +130,10 @@
                 };
             </script>
             <section ng-controller="DgerList">
-                <p><title>设计师</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <p><title>设计师</title><a data-transition="slideup" data-ajax="false" href="designerlist.html" class="float-right more">更多</a></p>
                 <div class="row">
                     <div class="col-xs-6" ng-repeat="dger in dgers">
-                        <a data-transition="slideup" data-ajax="false" href="designer.html?id={{dger.id}}&type={{dger.type}}">
+                        <a data-transition="slideup" data-ajax="false" href="designerinfo.html?id={{dger.id}}&type={{dger.type}}">
                             <img src="{{dger.img}}" class="img-responsive" alt="">
                         </a>
                     </div>
@@ -175,7 +179,7 @@
                 };
             </script>
             <section ng-controller="ChatList">
-                <p><title>七宝聊聊</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <p><title>七宝聊聊</title><a href="javascript:;" class="float-right more">更多</a></p>
                 <div id="qiBaoChat" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div ng-repeat="chat in chats" class="item {{chat.active}}">
@@ -209,7 +213,7 @@
             </script>
             <!-- 图库 -->
             <section ng-controller="photoList">
-                <p><title>图库</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <p><title>图库</title><a href="javascript:;" class="float-right more">更多</a></p>
                 <div class="row">
                     <div class="col-xs-4" ng-repeat="photo in photos"><img src="{{photo.img}}" class="img-responsive" alt=""></div>
                 </div>

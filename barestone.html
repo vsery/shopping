@@ -341,21 +341,25 @@
             <script type="text/javascript">
                 function ChatList($scope) {
                     $scope.chats = [{
+                        "id": 0,
                         "type": "10克拉宝石",
                         "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
                         "prize": "999.99",
                         "img": "temp/activity (3).jpg"
                     },{
+                        "id": 1,
                         "type": "10克拉宝石",
                         "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
                         "prize": "999.99",
                         "img": "temp/activity (2).jpg"
                     },{
+                        "id": 2,
                         "type": "10克拉宝石",
                         "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
                         "prize": "999.99",
                         "img": "temp/activity (3).jpg"
                     },{
+                        "id": 3,
                         "type": "10克拉宝石",
                         "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
                         "prize": "999.99",
@@ -368,9 +372,11 @@
                 <div id="qiBaoChat" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner" role="listbox">
                         <div ng-repeat="chat in chats" class="item {{chat.active}}">
-                            <img src="{{chat.img}}" alt="">
-                            <p class="info leng">{{chat.info}}</p>
-                            <p class="info"><span class="price">{{chat.prize}}</span><strong>{{chat.type}}</strong></p>
+                            <a class="prize" data-transition="slideup" data-ajax="false" href="product.html?id={{chat.id}}">
+                                <img src="{{chat.img}}" alt="">
+                                <p class="info leng">{{chat.info}}</p>
+                                <p class="info"><span class="price">{{chat.prize}}</span><strong>{{chat.type}}</strong></p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -379,31 +385,37 @@
             <script type="text/javascript">
                 function DIYList($scope) {
                     $scope.diys = [{
+                        "id": 0,
                         "type": "1克拉宝石",
                         "info": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "przie": "999.99",
                         "img": "temp/prod (1).jpg"
                     },{
+                        "id": 1,
                         "type": "2克拉宝石",
                         "info": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "przie": "999.99",
                         "img": "temp/prod (2).jpg"
                     },{
+                        "id": 2,
                         "type": "3克拉宝石",
                         "info": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "przie": "999.99",
                         "img": "temp/prod (3).jpg"
                     },{
+                        "id": 3,
                         "type": "4克拉宝石",
                         "info": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "przie": "999.99",
                         "img": "temp/prod (4).jpg"
                     },{
+                        "id": 4,
                         "type": "5克拉宝石",
                         "info": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "przie": "999.99",
                         "img": "temp/prod (5).jpg"
                     },{
+                        "id": 5,
                         "type": "60克拉宝石",
                         "info": "动心Ⅱ(女戒)-铂900钻石戒指",
                         "przie": "999.99",
@@ -414,9 +426,11 @@
             <section ng-controller="DIYList">
                 <div class="row">
                     <div class="col-xs-6" ng-repeat="diy in diys">
-                        <img src="{{diy.img}}" class="img-responsive" alt="">
-                        <p class="info gray">{{diy.info}}</p>
-                        <p class="info"><span class="price">{{diy.przie}}</span><strong>{{diy.type}}</strong></p>
+                        <a class="prize" data-transition="slideup" data-ajax="false" href="product.html?id={{diy.id}}">
+                            <img src="{{diy.img}}" class="img-responsive" alt="">
+                            <p class="info gray">{{diy.info}}</p>
+                            <p class="info"><span class="price">{{diy.przie}}</span><strong>{{diy.type}}</strong></p>
+                        </a>
                     </div>
                 </div>
             </section>

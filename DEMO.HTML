@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="MyFilterApp">
+ <script type="text/javascript">  
+ function windowScopedFilter (input) {  
+      var output = [];  
+      angular.forEach(input, function(v,k){  
+           if (v.phone.contains("555")) {  
+                output.push(v);  
+           }  
+      });  
+      return output;       
+ }  
+ var myapp = angular.module('MyFilterApp', []);  
+ myapp.filter('myfilter', function() {  
+   return function(input, param1) {  
+      console.log("------------------------------------------------- begin dump of custom parameters");  
+      console.log("input=",input);  
+      console.log("param1(string)=", param1);  
+      var args = Array.prototype.slice.call(arguments);  
+      console.log("arguments=", args.length);  
+      if (3<=args.length) {  
+           console.log("param2(string)=", args[2]);  
+      }  
+      if (4<=args.length) {  
+           console.log("param3(bool)=", args[3]);  
+      }  
+      console.log("------------------------------------------------- end dump of custom parameters");  
+      // filter  
+      if (5<=args.length) {  
+           return window[args[4]](input);  
+      }  
+      return input;  
+   };  
+ });  
+ myapp.controller('MyFilterController', ['$scope', function($scope) {  
+   $scope.friends = [{name:'John', phone:'555-1276'},  
+                      {name:'Annie', phone:'800-BIG-MARY'},  
+                      {name:'Mike', phone:'555-4321'},  
+                      {name:'Adam', phone:'555-5678'},  
+                      {name:'David', phone:'555-8765'},  
+                      {name:'Mikay', phone:'555-5678'}];  
+ }]);  
+ </script>  
+ </head>  
+ <body ng-app="MyFilterApp">  
+ <div ng-controller="MyFilterController">  
+      <table id="searchTextResults">  
+       <tr><th>Name</th><th>Phone</th></tr>  
+       <tr ng-repeat="friend in friends |myfilter:'param1':'param2':true:'windowScopedFilter'">  
+        <td>{{friend.name}}</td>  
+        <td>{{friend.phone}}</td>  
+       </tr>  
+      </table>  
+ </div>  
+ <hr>  
+</body>  
+</html>

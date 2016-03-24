@@ -7,12 +7,16 @@ a.btn-length {  padding: .5em 2em; }
 a.btn.active, a.btn:hover { border-color: #21b5a9; color: #21b5a9; }
 a.btn-defalut { border: 1px solid #999; background-color: transparent; margin: 0 1em; }
 a.btn-defalut.active, a.btn-defalut:hover { border-color: #21b5a9; color: white; background-color: #21b5a9; }
-.float { display: inline-block; } .float_left { float: left; } .float_right { float: right; } .caret { margin-left: 5px; }
+.float { display: inline-block; } .float-left { float: left; } .float-right { float: right; } .caret { margin-left: 5px; }
 .mesk { display: none; position: fixed; left: 0; top: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,.5); cursor: pointer; }
 .show { display: inline-block; } .hide { display: none; }
 
+/* 默认元素 */
+.btn.btn-default, .btn.btn-default:visited { border: 1px solid white; background-color: #21b5a9; color: white; -webkit-transition: all ease .3s; -o-transition: all ease .3s; transition: all ease .3s; }
+.btn.btn-default:hover { background-color: white; color: #21b5a9; border-color: #21b5a9; }
+
 /* 分享页面 */
-#share { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,.7); } #share.in { display: block; }
+#share { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: rgba(0,0,0,.7); z-index: 9999; } #share.in { display: block; }
 #share .bdsharebuttonbox { position: absolute; top: 140px; left: 50%; width: 144px; margin-left: -72px; background-color: white; padding: 15px; border-radius: 5px; text-align: center; }
 
 /* 顶部导航样式 */
@@ -152,6 +156,7 @@ a .sys_title { display: block; } #footer a .sys_title { font-size: .8em; }
 /*.carousel-indicators { width: 20%; margin-left: -10%; }*/
 ol.carousel-indicators li { float: none; }
 .carousel-inner .item a { width: 100%; height: 100%; position: absolute; left: 0; top: 0; }
+.carousel-inner .item a.prize { position: static; }
 .carousel-indicators li { margin:0 .25em; }
 .carousel-indicators li.active { width: 10px; height: 10px; background-color: #21b5a9; border-color: #21b5a9; }
 .carousel-inner .item >img { min-width: 100%; max-width: 100%; }
@@ -222,3 +227,24 @@ ul.dialogue-item li.right a { float: right; margin-right: -60px; }
 ul.dialogue-item li.right .dialogue-txt span.arrow { border-color: transparent transparent transparent #fff; border-style: dashed dashed dashed solid; right: -12px; }
 ul.dialogue-item li.left a { float: left; margin-left: -60px; }
 ul.dialogue-item li.left .dialogue-txt span.arrow { border-color: transparent #fff transparent transparent; border-style: dashed solid dashed dashed; left: -12px; }
+
+/* 公用显示价格 */
+div.prize-body { width: 100%; background-color: white; min-height: 3em; height: 80px; border-radius: 5px; padding: 10px; }
+div.prize-body span { display: inline-block; float: left; height: 30px; line-height: 30px; }
+div.prize-body span.name { text-indent: 1em; width: 100%; white-space: nowrap; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis; }
+div.prize-body span.pirze { width: 25%; text-align: left; }
+div.prize-body span.pirze:before { content: "￥"; position: relative; left: 0; color: #00c0ff; }
+div.prize-body span:after { content: ""; clear: both; }
+
+/* 产品详情页面 */
+#Desginer, .OrderInfo { width: 100%; height: auto; display: block; }
+#Desginer img.head, .OrderInfo img.img{ width: 60px; height: 60px; display: inline-block; float: left; }
+#Desginer name, .OrderInfo name { width: 100%; display: block; padding-left: 80px; font-size: 16px; }
+#Desginer p, .OrderInfo p { margin-top: 10px; margin-bottom: 0; padding-left: 20px; width: auto; height: 3em; overflow: hidden; -ms-text-overflow: ellipsis; text-overflow: ellipsis; }
+.OrderInfo span.prize { float: right; color: #21b5a9; }
+.OrderInfo span.prize:before { content: "￥"; position: relative; left: 0; color: #21b5a9; font-weight: 700; }
+
+/* 订单结束页面 */
+#All-Prize { height: 48px; }
+#All-Prize::before { content: "总金额:"; color: black; position: absolute; left: 10px; font-size: 14px; top: 14px; }
+#All-Prize input[type='text'] { padding-left: 70px; color: #21b5a9; }
