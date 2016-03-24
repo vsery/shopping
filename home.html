@@ -1,0 +1,231 @@
+<script type="text/javascript">
+    var menu=0;
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- 首页 -->
+    <div data-role="page" id="home">
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false"></div>
+        <div data-role="main" class="ui-content">
+            <!-- 广告图部分 banner -->
+            <script type="text/javascript">
+                function BannerList($scope) {
+                    $scope.banners = [{
+                        "id": 0,
+                        "img": "temp/activity (1).jpg",
+                        "active" : "active"
+                    },{
+                        "id": 1,
+                        "img": "temp/activity (2).jpg",
+                        "active" : ""
+                    },{
+                        "id": 2,
+                        "img": "temp/activity (3).jpg",
+                        "active" : ""
+                    },{
+                        "id": 3,
+                        "img": "temp/activity (3).jpg",
+                        "active" : ""
+                    }];
+                };
+            </script>
+            <div id="home_banner" class="carousel slide" data-ride="carousel" ng-controller="BannerList">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#home_banner" ng-repeat="banner in banners" data-slide-to="{{banner.id}}" class="{{banner.active}}"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div ng-repeat="banner in banners" class="item {{banner.active }}">
+                        <img src="{{banner.img}}" alt="{{banner.name}}">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 活动专区 -->
+            <script type="text/javascript">
+                function ActivityList($scope) {
+                    $scope.activitys = [{
+                        "img": "temp/activity (1).jpg"
+                    },{
+                        "img": "temp/activity (2).jpg"
+                    }];
+                };
+            </script>
+            <section ng-controller="ActivityList">
+                <p><title>活动专区</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <div class="row">
+                    <div class="col-xs-6" ng-repeat="act in activitys"><img src="{{act.img}}" class="img-responsive" alt=""></div>
+                </div>
+            </section>
+
+            <!-- DIY专区 -->
+            <script type="text/javascript">
+                function DIYList($scope) {
+                    $scope.diys = [{
+                        "name": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "img": "temp/prod (1).jpg"
+                    },{
+                        "name": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "img": "temp/prod (2).jpg"
+                    }];
+                };
+            </script>
+            <section ng-controller="DIYList">
+                <p><title>DIY</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <div class="row">
+                    <div class="col-xs-6" ng-repeat="diy in diys">
+                        <img src="{{diy.img}}" class="img-responsive" alt="">
+                        <div class="introduce">{{diy.name}}</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 设计师 -->
+            <script type="text/javascript">
+                function DgerList($scope) {
+                    $scope.dgers = [{
+                        "id": 0,
+                        "img": "temp/activity (3).jpg",
+                        "type": 1
+                    },{
+                        "id": 1,
+                        "img": "temp/activity (4).jpg",
+                        "type": 2
+                    },{
+                        "id": 2,
+                        "img": "temp/activity (5).jpg",
+                        "type": 3
+                    },{
+                        "id": 3,
+                        "img": "temp/activity (3).jpg",
+                        "type": 4
+                    }];
+                };
+            </script>
+            <section ng-controller="DgerList">
+                <p><title>设计师</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <div class="row">
+                    <div class="col-xs-6" ng-repeat="dger in dgers">
+                        <a data-transition="slideup" data-ajax="false" href="designer.html?id={{dger.id}}&type={{dger.type}}">
+                            <img src="{{dger.img}}" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 七宝聊聊 -->
+            <script type="text/javascript">
+                function ChatList($scope) {
+                    $scope.chats = [{
+                        "id": 0,
+                        "name": "张三",
+                        "active": "active",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "header": "temp/fans (1).jpg",
+                        "prize": "999.99",
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "id": 1,
+                        "name": "李四",
+                        "active": "",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "header": "temp/fans (2).jpg",
+                        "prize": "999.99",
+                        "img": "temp/activity (2).jpg"
+                    },{
+                        "id": 2,
+                        "name": "王五",
+                        "active": "",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "header": "temp/fans (3).jpg",
+                        "prize": "999.99",
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "id": 3,
+                        "name": "赵六",
+                        "active": "",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "header": "temp/fans (4).jpg",
+                        "prize": "999.99",
+                        "img": "temp/activity (2).jpg"
+                    }];
+                };
+            </script>
+            <section ng-controller="ChatList">
+                <p><title>七宝聊聊</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <div id="qiBaoChat" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div ng-repeat="chat in chats" class="item {{chat.active}}">
+                            <img src="{{chat.img}}" alt="">
+                            <div class="introduce share">
+                                <img src="{{chat.header}}" alt="" class="header">
+                                <span class="into"><strong>{{chat.name}}</strong>{{chat.info}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 图库 -->
+            <script type="text/javascript">
+                function photoList($scope) {
+                    $scope.photos = [{
+                        "img": "temp/activity (1).jpg"
+                    },{
+                        "img": "temp/activity (2).jpg"
+                    },{
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "img": "temp/activity (1).jpg"
+                    },{
+                        "img": "temp/activity (2).jpg"
+                    },{
+                        "img": "temp/activity (3).jpg"
+                    }];
+                };
+            </script>
+            <!-- 图库 -->
+            <section ng-controller="photoList">
+                <p><title>图库</title><a href="javascript:;" class="float_right more">更多</a></p>
+                <div class="row">
+                    <div class="col-xs-4" ng-repeat="photo in photos"><img src="{{photo.img}}" class="img-responsive" alt=""></div>
+                </div>
+            </section>
+        </div>
+        <div id="sidebar"></div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>
+    </div>
+<script type="text/javascript">    
+    var tophtml=$.ajax({ type:"GET", url:"system/header.html", async:false }); $("#header").html(tophtml.responseText); //ajax{加载顶部页面}
+    var foothtml=$.ajax({ type:"GET", url:"system/footer.html", async:false }); $("#footer").html(foothtml.responseText); //ajax{加载底部页面}
+    var sidehtml=$.ajax({ type:"GET", url:"system/sidebar.html", async:false }); $("#sidebar").html(sidehtml.responseText); //ajax{加载底部页面}
+    $( function () {
+        $("#footer li").eq(menu).addClass('active');
+        $('.carousel').carousel({ interval: 2000 });
+    });
+</script>
+</body>
+</html>

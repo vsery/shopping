@@ -1,0 +1,95 @@
+<script type="text/javascript">
+    function request(paras){
+    　　var url = location.href;
+    　　var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");
+    　　var paraObj = {}
+    　　for (i=0;j=paraString[i];i++){
+        　　paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);
+    　　}
+    　　var returnValue = paraObj[paras.toLowerCase()];
+    　　if(typeof(returnValue)=="undefined"){
+        　　return "";
+    　　}else{
+        　　return returnValue;
+    　　}
+　　}
+　　var typeid = request("type");
+　　var id = request("id");
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- 定制首页 -->
+    <div data-role="page">
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false">
+            <a href="javascript:;" class="sys sys_return ui-btn-left" data-rel="back"></a>
+            <div class="float float_right">
+                <a data-transition="slideup" data-ajax="false" href="search.html" class="sys sys_search"></a>
+                <a href="javascript:;" class="sys sys_share" id="share-btn"></a>
+                <a data-transition="slideup" data-ajax="false" href="javascript:;" class="sys sys_shopping_cart"></a>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">        
+            <!-- 广告图部分 banner -->
+            <script type="text/javascript">
+                function BannerList($scope) {
+                    $scope.banners = [{
+                        "id": 0,
+                        "img": "temp/activity (1).jpg",
+                        "active" : "active"
+                    },{
+                        "id": 1,
+                        "img": "temp/activity (2).jpg",
+                        "active" : ""
+                    },{
+                        "id": 2,
+                        "img": "temp/activity (3).jpg",
+                        "active" : ""
+                    },{
+                        "id": 3,
+                        "img": "temp/activity (3).jpg",
+                        "active" : ""
+                    }];
+                };
+            </script>
+            <div id="home_banner" class="carousel slide" data-ride="carousel" ng-controller="BannerList">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#home_banner" ng-repeat="banner in banners" data-slide-to="{{banner.id}}" class="{{banner.active}}"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div ng-repeat="banner in banners" class="item {{banner.active }}">
+                        <img src="{{banner.img}}" alt="{{banner.name}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>
+    </div>
+<script type="text/javascript">
+    var sharehtml=$.ajax({ type:"GET", url:"system/share.html", async:false }); $("#share").html(sharehtml.responseText);
+</script>
+</body>
+</html>

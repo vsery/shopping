@@ -1,0 +1,105 @@
+<script type="text/javascript">
+    var menu=3;
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- 设计师首页 -->
+    <div data-role="page">
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false">
+        </div>
+        <div data-role="main" class="ui-content">
+            <!-- 设计师 -->
+            <script type="text/javascript">
+                //设计师类型
+                function drType($scope) {
+                    $scope.drtypes = [{
+                        "id": 0,
+                        "name": "项链设计师"
+                    },{
+                        "id": 1,
+                        "name": "雕件摆件设计师"
+                    },{
+                        "id": 2,
+                        "name": "珠宝设计师"
+                    },{
+                        "id": 3,
+                        "name": "钻石设计师"
+                    }];
+                };
+                //零食设计师组表
+                function DesignerList($scope) {
+                    $scope.designers = [{
+                        "id": 0,
+                        "img": "temp/activity (3).jpg",
+                        "active": "active"
+                    },{
+                        "id": 1,
+                        "img": "temp/activity (4).jpg",
+                        "active": ""
+                    },{
+                        "id": 2,
+                        "img": "temp/activity (5).jpg",
+                        "active": ""
+                    },{
+                        "id": 3,
+                        "img": "temp/activity (4).jpg",
+                        "active": ""
+                    }];
+                };
+            </script>
+            <div ng-controller="drType">
+                <section ng-repeat="drtype in drtypes">
+                    <p>
+                        <title>{{drtype.name}}</title>
+                        <a href="designerlist.html?type={{drtype.id}}" data-ajax="false" class="float_right more">更多</a>
+                    </p>
+                    <div class="carousel slide" data-ride="carousel" ng-controller="DesignerList">
+                        <ol class="carousel-indicators">
+                            <li data-target="#designer1" ng-repeat="dger in designers" data-slide-to="{{dger.id}}" class="{{dger.active}}"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <div ng-repeat="dger in designers" class="item {{dger.active}}">
+                                <a data-transition="slideup" data-ajax="false" href="designerinfo.html?id={{dger.id}}&type={{drtype.id}}"></a>
+                                <img src="{{dger.img}}">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div id="sidebar"></div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>
+    </div>
+<script type="text/javascript">    
+    var tophtml=$.ajax({ type:"GET", url:"system/header.html", async:false }); $("#header").html(tophtml.responseText); //ajax{加载顶部页面}
+    var foothtml=$.ajax({ type:"GET", url:"system/footer.html", async:false }); $("#footer").html(foothtml.responseText); //ajax{加载底部页面}
+    var sidehtml=$.ajax({ type:"GET", url:"system/sidebar.html", async:false }); $("#sidebar").html(sidehtml.responseText); //ajax{加载底部页面}
+    $( function () {
+        $("#footer li").eq(menu).addClass('active');
+        $('.carousel').carousel({ interval: 3000 });
+    });
+</script>
+</body>
+</html>

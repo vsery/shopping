@@ -1,0 +1,71 @@
+<!-- 个人信息面板 -->
+<script type="text/javascript">
+    function LeftSideBar($scope) {
+        $scope.sidebars =[{
+            "name": "首页",
+            "faclass": "sys_sidebar_home",
+            "src": "home.html",
+        },{
+            "name": "个人中心",
+            "faclass": "sys_sidebar_personal",
+            "src": "Personal.html",
+        },{
+            "name": "购物车",
+            "faclass": "sys_sidebar_shopping_cart",
+            "src": "ShoppingCart.html",
+        },{
+            "name": "DIY与定制",
+            "faclass": "sys_sidebar_customized",
+            "src": "DiyCustomized.html",
+        },{
+            "name": "我的设计师",
+            "faclass": "sys_sidebar_designer",
+            "src": "MyDesigner.html",
+        },{
+            "name": "客服余反馈",
+            "faclass": "sys_sidebar_customer",
+            "src": "Customer.html",
+        },{
+            "name": "七宝聊聊",
+            "faclass": "sys_sidebar_chat",
+            "src": "Chat.html",
+        }];
+        $scope.people = {
+            "name": "张三",
+            "englishname": "Mr.Zhang",
+            "header": "temp/fans (5).jpg"
+        }
+    }
+</script>
+<div class="sidebar" ng-controller="LeftSideBar">
+    <div class="sidebar_header">
+         <img src="{{people.header}}" alt="" class="header">
+         <name>{{people.name}}<br/>{{people.englishname}}</name>
+    </div>
+    <ul>
+        <li ng-repeat="sidebar in sidebars">
+            <a href="{{sidebar.src}}" data-ajax="false"><i class="sys {{sidebar.faclass}}"></i> {{sidebar.name}}</a>
+        </li>
+    </ul>
+    <a href="javascript:;" class="btn btn-defalut close_btn">退出登录</a>
+</div>
+<div class="mesk"></div>
+<script type="text/javascript">
+    $(function () {
+        //打开侧边栏
+        $(".sys_menu").click(function() {
+            $(".sidebar").addClass('in');
+            $('#header').addClass('ui-fixed-hidden');
+            $('#footer').addClass('ui-fixed-hidden');
+            $(".screen").removeClass('in');
+        });
+        //侧边栏退出登录
+        $(".sidebar a.close_btn").click(function() {
+            $(this).parents(".sidebar").removeClass('in');
+        });
+        //移除侧边栏面板 即关闭面板
+        $(".sidebar~.mesk").click(function() {
+            $(this).prev(".sidebar").removeClass('in');
+        });
+    });
+</script>

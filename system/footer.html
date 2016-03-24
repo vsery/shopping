@@ -1,0 +1,39 @@
+<!-- 底部导航模拟数据 -->
+<script type="text/javascript">
+    function FootNav($scope) {
+        $scope.footnavs = [{
+            "name": "首页",
+            "faclass": "sys_home",
+            "active" : "",
+            "src": "home.html"
+        },{
+            "name": "裸石",
+            "faclass": "sys_bare_stone",
+            "active" : "",
+            "src": "barestone.html"
+        },{
+            "name": "DIY",
+            "faclass": "sys_diy",
+            "active" : "",
+            "src": "diy.html"
+        },{
+            "name": "设计师",
+            "faclass": "sys_designer",
+            "active" : "",
+            "src": "designers.html"
+        },{
+            "name": "定制",
+            "faclass": "sys_customized",
+            "active" : "",
+            "src": "customized.html"
+        }];
+    };
+</script>
+<ul ng-controller="FootNav">
+    <li ng-repeat="fnav in footnavs" class="{{fnav.active}}">
+        <a data-transition="slideup" data-ajax="false" href="{{fnav.src}}">
+            <i class="sys small {{fnav.faclass}}"></i>
+            <span class="sys_title">{{fnav.name}}</span>
+        </a>
+    </li>
+</ul>

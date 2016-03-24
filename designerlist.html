@@ -1,0 +1,120 @@
+<script type="text/javascript">
+    var menu=3;
+    function request(paras){
+    　　var url = location.href;
+    　　var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");
+    　　var paraObj = {}
+    　　for (i=0;j=paraString[i];i++){
+        　　paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);
+    　　}
+    　　var returnValue = paraObj[paras.toLowerCase()];
+    　　if(typeof(returnValue)=="undefined"){
+        　　return "";
+    　　}else{
+        　　return returnValue;
+    　　}
+　　}
+　　var typeid = request("type");
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- 首页 -->
+    <div data-role="page">
+        <script type="text/javascript">
+        function drType($scope) {
+            $scope.drtypes = [{
+                "id": 0,
+                "name": "项链设计师"
+            },{
+                "id": 1,
+                "name": "雕件摆件设计师"
+            },{
+                "id": 2,
+                "name": "珠宝设计师"
+            },{
+                "id": 3,
+                'name': "钻石设计师"
+            }];
+        }
+        </script>
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false">
+            <h1 ng-controller="drType"><span ng-repeat="drtype in drtypes">{{drtype.name}}</span></h1>
+            <a href="javascript:;" class="sys sys_return ui-btn-left" data-rel="back"></a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <script type="text/javascript">
+                function DesignerList($scope) {
+                    $scope.dgers = [{
+                        "id": 0,
+                        "name": "黄晓燕",
+                        "zan": 999,
+                        "dec": "顶级设计师,曾获得全国顶级设计师大奖....",
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "id": 1,
+                        "name": "黄晓燕",
+                        "zan": 999,
+                        "dec": "顶级设计师,曾获得全国顶级设计师大奖....",
+                        "img": "temp/activity (4).jpg"
+                    },{
+                        "id": 2,
+                        "name": "黄晓燕",
+                        "zan": 999,
+                        "dec": "顶级设计师,曾获得全国顶级设计师大奖....",
+                        "img": "temp/activity (5).jpg"
+                    },{
+                        "id": 3,
+                        "name": "黄晓燕",
+                        "zan": 999,
+                        "dec": "顶级设计师,曾获得全国顶级设计师大奖....",
+                        "img": "temp/activity (4).jpg"
+                    }];
+                };
+            </script>
+            <div ng-controller="DesignerList">
+            <section ng-repeat="dger in dgers">
+                <a href="designerinfo.html?id={{dger.id}}" data-ajax="false" class="designerinfo">
+                    <img src="{{dger.img}}" alt="" class="img-responsive">
+                    <p class="info"><span class="price"><i class="sys sys_zan min"></i> {{dger.zan}}</span><strong>{{dger.name}}</strong></p>
+                    <p class="info leng">{{dger.dec}}</p>
+                </a>
+            </section>
+            </div>
+        </div>
+        <div id="sidebar"></div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>
+    </div>
+<script type="text/javascript">    
+    var foothtml=$.ajax({ type:"GET", url:"system/footer.html", async:false }); $("#footer").html(foothtml.responseText); //ajax{加载底部页面}
+    var sidehtml=$.ajax({ type:"GET", url:"system/sidebar.html", async:false }); $("#sidebar").html(sidehtml.responseText); //ajax{加载底部页面}
+    $( function () {
+        $("a.designerinfo").attr("href", $("a.designerinfo").attr("href")+"&type="+typeid);
+        $("#header h1 span").eq(typeid).addClass('show').siblings().addClass('hide');
+        $("#footer li").eq(menu).addClass('active');
+        $('.carousel').carousel({ interval: 3000 });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<script type="text/javascript">
+    var menu=2;
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- DIY首页 -->
+    <div data-role="page" id="diy">
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false"></div>
+        <div data-role="main" class="ui-content">
+            <script type="text/javascript">
+                //导航菜单
+                function screen($scope) {
+                    $scope.selnavs = [
+                        {"name": "戒指"},
+                        {"name": "手链"},
+                        {"name": "吊坠"},
+                        {"name": "耳环"},
+                        {"name": "手镯"},
+                        {"name": "项链"}
+                    ];
+                }
+                //克拉
+                function styleList($scope) {
+                    $scope.styles = [
+                        {"name" : "日韩"},
+                        {"name" : "美国"},
+                        {"name" : "意法"},
+                        {"name" : "希腊"},
+                        {"name" : "中国风"},
+                        {"name" : "泰国"}
+                    ];
+                }
+                //小单位克拉
+                function sexList($scope) {
+                    $scope.sexs = [
+                        {"name" : "女"},
+                        {"name" : "男"}
+                    ];
+                }
+            </script>
+            <div class="swiper-container" id="screen" ng-controller="screen">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide" ng-repeat="selnav in selnavs"><a href="javascript:;"> {{selnav.name}} <span class="caret"></span></a></li>
+                </ul>
+            </div>
+            <ul class="submenu">
+                <li>
+                    <section class="screen" ng-controller="styleList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">风格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="style in styles" class="swiper-slide btn" href="javascript:;">{{style.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="sexList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">性别:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="sex in sexs" class="swiper-slide btn" href="javascript:;">{{sex.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="styleList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">风格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="style in styles" class="swiper-slide btn" href="javascript:;">{{style.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="sexList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">性别:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="sex in sexs" class="swiper-slide btn" href="javascript:;">{{sex.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="styleList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">风格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="style in styles" class="swiper-slide btn" href="javascript:;">{{style.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="sexList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">性别:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="sex in sexs" class="swiper-slide btn" href="javascript:;">{{sex.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="styleList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">风格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="style in styles" class="swiper-slide btn" href="javascript:;">{{style.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="sexList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">性别:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="sex in sexs" class="swiper-slide btn" href="javascript:;">{{sex.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="styleList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">风格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="style in styles" class="swiper-slide btn" href="javascript:;">{{style.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="sexList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">性别:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="sex in sexs" class="swiper-slide btn" href="javascript:;">{{sex.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="styleList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">风格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="style in styles" class="swiper-slide btn" href="javascript:;">{{style.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="sexList">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">性别:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="sex in sexs" class="swiper-slide btn" href="javascript:;">{{sex.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- 七宝聊聊 -->
+            <script type="text/javascript">
+                function ChatList($scope) {
+                    $scope.chats = [{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (2).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (2).jpg"
+                    }];
+                };
+                var show= 0;
+            </script>
+            <section ng-controller="ChatList">
+                <div id="qiBaoChat" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div ng-repeat="chat in chats" class="item {{chat.active}}">
+                            <img src="{{chat.img}}" alt="">
+                            <p class="info leng">{{chat.info}}</p>
+                            <p class="info"><span class="price">{{chat.prize}}</span><strong>{{chat.type}}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- DIY专区 -->
+            <script type="text/javascript">
+                function DIYList($scope) {
+                    $scope.diys = [{
+                        "type": "10克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (1).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (2).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (1).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (2).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (1).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (2).jpg"
+                    }];
+                };
+            </script>
+            <section ng-controller="DIYList">
+                <div class="row">
+                    <div class="col-xs-6" ng-repeat="diy in diys">
+                        <img src="{{diy.img}}" class="img-responsive" alt="">
+                        <p class="info gray">{{diy.info}}</p>
+                        <p class="info"><span class="price">{{diy.przie}}</span><strong>{{diy.type}}</strong></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="sidebar"></div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>  
+    </div>
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container ', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    var tophtml=$.ajax({ type:"GET", url:"system/header.html", async:false }); $("#header").html(tophtml.responseText); //ajax{加载顶部页面}
+    var foothtml=$.ajax({ type:"GET", url:"system/footer.html", async:false }); $("#footer").html(foothtml.responseText); //ajax{加载底部页面}
+    var sidehtml=$.ajax({ type:"GET", url:"system/sidebar.html", async:false }); $("#sidebar").html(sidehtml.responseText); //ajax{加载底部页面}
+    $( function () {
+        $("#screen li.swiper-slide").click(function() {
+            if( $(this).hasClass('active') == true) {
+                $(this).removeClass('active');
+                $("ul.submenu li").removeClass('active');
+            }else{
+                $(this).addClass('active').siblings().removeClass('active');
+                $("ul.submenu li").eq($(this).index()).addClass('active').siblings().removeClass('active');
+            }
+        });
+        $(".save_btn").click(function() {
+            $(this).parents("li").removeClass('active');
+            $("li.swiper-slide").eq($(this).parents("li").index()).removeClass('active');
+        });
+        $(".close_btn").click(function() {
+            $(this).parents("li").removeClass('active');
+            $("li.swiper-slide").eq($(this).parents("li").index()).removeClass('active'); 
+        });
+        $(".item").eq(show).addClass('active');
+        $("#footer li").eq(menu).addClass('active');
+    });
+</script>
+</body>
+</html>

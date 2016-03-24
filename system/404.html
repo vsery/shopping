@@ -1,0 +1,48 @@
+<script type="text/javascript">
+    var menu=0;
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+<!-- 搜索页面 -->
+<div data-role="page" id="home">
+    <form method="post" action="demoform.asp">
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false">
+            <div data-role="fieldcontain">
+                <label for="search">搜索：</label>
+                <input type="search" name="search" id="search" placeholder="搜索内容...">
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+        </div>
+    </form> 
+</div>
+<script type="text/javascript">
+    $( function () {
+        $("#footer li").eq(menu).addClass('active');
+        $('.carousel').carousel({ interval: 2000 });
+    });
+</script>
+</body>
+</html>

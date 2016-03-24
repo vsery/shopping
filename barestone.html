@@ -1,0 +1,458 @@
+<script type="text/javascript">
+    var menu=1;
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- 裸钻首页 -->
+    <div data-role="page" id="barestone">
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false"></div>
+        <div data-role="main" class="ui-content">
+            <script type="text/javascript">
+                //导航菜单
+                function screen($scope) {
+                    $scope.selnavs = [
+                        {"name": "彩宝"},
+                        {"name": "半宝"},
+                        {"name": "珠珠"},
+                        {"name": "翡翠"},
+                        {"name": "钻石"},
+                        {"name": "珠宝"}
+                    ];
+                }
+                //克拉
+                function carat($scope) {
+                    $scope.carats = [
+                        {"name" : "0~1克拉"},
+                        {"name" : "1~2克拉"},
+                        {"name" : "3~5克拉"},
+                        {"name" : "5~10克拉"},
+                        {"name" : "10~20克拉"},
+                        {"name" : "20克拉以上"}
+                    ];
+                }
+                //小单位克拉
+                function min_carat($scope) {
+                    $scope.mcarats = [
+                        {"name" : "30分"},
+                        {"name" : "50分"},
+                        {"name" : "80分"},
+                        {"name" : "1克拉"},
+                        {"name" : "1~2克拉"},
+                        {"name" : "2~5克拉"}
+                    ];
+                }
+                //形状
+                function screen_shape($scope) {
+                    $scope.screen_shapes = [
+                        {"name" : "圆形",      "icon" : "sys_circular_shaped" },
+                        {"name" : "公主方形",  "icon" : "sys_square_shaped" },
+                        {"name" : "祖母绿形",  "icon" : "sys_emerald_shaped" },
+                        {"name" : "橄尖形",    "icon" : "sys_olive_pointed" },
+                        {"name" : "椭圆形",    "icon" : "sys_ellipse_shaped" },
+                        {"name" : "梨形",      "icon" : "sys_pear_shaped" },
+                        {"name" : "心形",      "icon" : "sys_heart_shaped" },
+                        {"name" : "三角形",    "icon" : "sys_triangle_shaped" },
+                        {"name" : "异形",      "icon" : "sys_special_shaped" },
+                        {"name" : "蛋面",      "icon" : "sys_egg_shaped" }
+                    ];
+                }
+                //种类1
+                function screen_half($scope) {
+                    $scope.screen_halfs = [
+                        {"name" : "海蓝宝",    "icon" : "sys_shaped_aquamarine" },
+                        {"name" : "石榴石",    "icon" : "sys_shaped_garnet" },
+                        {"name" : "水晶",      "icon" : "sys_shaped_crystal" },
+                        {"name" : "橄榄石",    "icon" : "sys_shaped_olivine" },
+                        {"name" : "琥珀",      "icon" : "sys_shaped_amber" },
+                        {"name" : "蜜蜡",      "icon" : "sys_shaped_beeswax" },
+                        {"name" : "珊瑚",      "icon" : "sys_shaped_coral" },
+                        {"name" : "玉髓",      "icon" : "sys_shaped_chalcedony" },
+                        {"name" : "绿松石",    "icon" : "sys_shaped_turquoise" },
+                        {"name" : "南红",      "icon" : "sys_shaped_nanhong" }
+                    ];
+                }
+                //种类2
+                function screen_color($scope) {
+                    $scope.screen_colors = [
+                        {"name" : "红宝石",    "icon" : "sys_shaped_Ruby" },
+                        {"name" : "蓝宝石",    "icon" : "sys_shaped_sapphire" },
+                        {"name" : "祖母绿",    "icon" : "sys_shaped_emerald" },
+                        {"name" : "坦桑石",    "icon" : "sys_shaped_tanzanite" },
+                        {"name" : "沙弗莱",    "icon" : "sys_shaped_shafle" },
+                        {"name" : "欧泊",      "icon" : "sys_shaped_opal" },
+                        {"name" : "葡萄石",    "icon" : "sys_shaped_grapestone" },
+                        {"name" : "月光石",    "icon" : "sys_shaped_moonstone" },
+                        {"name" : "碧玺",      "icon" : "sys_shaped_tourmaline" },
+                        {"name" : "托帕石",    "icon" : "sys_shaped_topaz" },
+                        {"name" : "尖晶石",    "icon" : "sys_shaped_spinel" },
+                        {"name" : "猫眼石",    "icon" : "sys_shaped_cateye" }
+                    ];
+                }
+                //价格
+                function screen_price($scope) {
+                    $scope.screen_prices = [
+                        {"name" : "从高到低"},
+                        {"name" : "从低到高"}
+                    ];
+                }
+                //颜色
+                function screen_model($scope) {
+                    $scope.screen_models = [
+                        {"name" : "白钻D"},
+                        {"name" : "白钻E"},
+                        {"name" : "白钻F"},
+                        {"name" : "白钻G"},
+                        {"name" : "白钻H"},
+                        {"name" : "白钻J"},
+                        {"name" : "白钻K"},
+                        {"name" : "白钻E"},
+                        {"name" : "彩钻石"}
+                    ];
+                }
+                //按种水
+                function screen_water($scope) {
+                    $scope.screen_waters = [
+                        {"name" : "玻璃种"},
+                        {"name" : "冰种"},
+                        {"name" : "冰糯"},
+                        {"name" : "糯种"}
+                    ];
+                }
+                //按种类
+                function screen_specie($scope) {
+                    $scope.screen_species = [
+                        {"name" : "佛"},
+                        {"name" : "观音"},
+                        {"name" : "蛋面"},
+                        {"name" : "手镯"},
+                        {"name" : "其他"}
+                    ];
+                }
+            </script>
+            <div class="swiper-container" id="screen" ng-controller="screen">
+                <ul class="swiper-wrapper">
+                    <li class="swiper-slide" ng-repeat="selnav in selnavs"><a href="javascript:;"> {{selnav.name}} <span class="caret"></span></a></li>
+                </ul>
+            </div>
+            <ul class="submenu">
+                <li>
+                    <section class="screen" ng-controller="carat">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">克拉:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="carat in carats" class="swiper-slide btn" href="javascript:;">{{carat.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_shape">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">形状:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="shape in screen_shapes" class="swiper-slide btn" href="javascript:;">
+                                            <i class="sys {{shape.icon}}"></i><span class="sys_title">{{shape.name}}</span></a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_price">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">价格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="price in screen_prices" class="swiper-slide btn" href="javascript:;">{{price.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_color">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">种类:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="color in screen_colors" class="swiper-slide btn" href="javascript:;">
+                                            <i class="sys {{color.icon}}"></i><span class="sys_title">{{color.name}}</span></a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="carat">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">克拉:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="carat in carats" class="swiper-slide btn" href="javascript:;">{{carat.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_shape">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">形状:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="shape in screen_shapes" class="swiper-slide btn" href="javascript:;">
+                                            <i class="sys {{shape.icon}}"></i><span class="sys_title">{{shape.name}}</span></a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_price">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">价格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="price in screen_prices" class="swiper-slide btn" href="javascript:;">{{price.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_half">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">种类:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="half in screen_halfs" class="swiper-slide btn" href="javascript:;">
+                                            <i class="sys {{half.icon}}"></i><span class="sys_title">{{half.name}}</span></a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="min_carat">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">克拉:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="mcarat in mcarats" class="swiper-slide btn" href="javascript:;">
+                                            <span class="sys_title">{{mcarat.name}}</span></a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_shape">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">形状:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="shape in screen_shapes" class="swiper-slide btn" href="javascript:;">
+                                            <i class="sys {{shape.icon}}"></i><span class="sys_title">{{shape.name}}</span></a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_price">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">价格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="price in screen_prices" class="swiper-slide btn" href="javascript:;">{{price.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_model">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">颜色:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="model in screen_models" class="swiper-slide btn" href="javascript:;">{{model.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="screen_price">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">价格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="price in screen_prices" class="swiper-slide btn" href="javascript:;">{{price.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="screen_price">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">价格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="price in screen_prices" class="swiper-slide btn" href="javascript:;">{{price.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_water">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">按种水:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="water in screen_waters" class="swiper-slide btn" href="javascript:;">{{water.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="screen" ng-controller="screen_specie">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">种类:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="specie in screen_species" class="swiper-slide btn" href="javascript:;">{{specie.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+                <li>
+                    <section class="screen" ng-controller="screen_price">
+                        <div class="swiper-container screen_panel">
+                            <title class="screen_title">价格:</title>
+                            <div class="swiper-wrapper">
+                                <a ng-repeat="price in screen_prices" class="swiper-slide btn" href="javascript:;">{{price.name}}</a>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="screen_footer">
+                        <a href="javascript:;" class="btn btn-length btn-defalut close_btn">清空</a>
+                        <a href="javascript:;" class="btn btn-length btn-defalut save_btn active">保存</a>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- 七宝聊聊 -->
+            <script type="text/javascript">
+                function ChatList($scope) {
+                    $scope.chats = [{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (2).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (3).jpg"
+                    },{
+                        "type": "10克拉宝石",
+                        "info": "金钻石戒指斯里兰卡皇家蓝宝石戒指天然祖母绿吊坠",
+                        "prize": "999.99",
+                        "img": "temp/activity (2).jpg"
+                    }];
+                };
+                var show= 0;
+            </script>
+            <section ng-controller="ChatList">
+                <div id="qiBaoChat" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div ng-repeat="chat in chats" class="item {{chat.active}}">
+                            <img src="{{chat.img}}" alt="">
+                            <p class="info leng">{{chat.info}}</p>
+                            <p class="info"><span class="price">{{chat.prize}}</span><strong>{{chat.type}}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- DIY专区 -->
+            <script type="text/javascript">
+                function DIYList($scope) {
+                    $scope.diys = [{
+                        "type": "1克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (1).jpg"
+                    },{
+                        "type": "2克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (2).jpg"
+                    },{
+                        "type": "3克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (3).jpg"
+                    },{
+                        "type": "4克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (4).jpg"
+                    },{
+                        "type": "5克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (5).jpg"
+                    },{
+                        "type": "60克拉宝石",
+                        "info": "动心Ⅱ(女戒)-铂900钻石戒指",
+                        "przie": "999.99",
+                        "img": "temp/prod (6).jpg"
+                    }];
+                };
+            </script>
+            <section ng-controller="DIYList">
+                <div class="row">
+                    <div class="col-xs-6" ng-repeat="diy in diys">
+                        <img src="{{diy.img}}" class="img-responsive" alt="">
+                        <p class="info gray">{{diy.info}}</p>
+                        <p class="info"><span class="price">{{diy.przie}}</span><strong>{{diy.type}}</strong></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="sidebar"></div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>  
+    </div>
+<script type="text/javascript">
+    var swiper = new Swiper('.swiper-container ', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+    var tophtml=$.ajax({ type:"GET", url:"system/header.html", async:false }); $("#header").html(tophtml.responseText); //ajax{加载顶部页面}
+    var foothtml=$.ajax({ type:"GET", url:"system/footer.html", async:false }); $("#footer").html(foothtml.responseText); //ajax{加载底部页面}
+    var sidehtml=$.ajax({ type:"GET", url:"system/sidebar.html", async:false }); $("#sidebar").html(sidehtml.responseText); //ajax{加载底部页面}
+    $( function () {
+        $("#screen li.swiper-slide").click(function() {
+            if( $(this).hasClass('active') == true) {
+                $(this).removeClass('active');
+                $("ul.submenu li").removeClass('active');
+            }else{
+                $(this).addClass('active').siblings().removeClass('active');
+                $("ul.submenu li").eq($(this).index()).addClass('active').siblings().removeClass('active');
+            }
+        });
+        $(".save_btn").click(function() {
+            $(this).parents("li").removeClass('active');
+            $("li.swiper-slide").eq($(this).parents("li").index()).removeClass('active');
+        });
+        $(".close_btn").click(function() {
+            $(this).parents("li").removeClass('active');
+            $("li.swiper-slide").eq($(this).parents("li").index()).removeClass('active'); 
+        });
+        $(".item").eq(show).addClass('active');
+        $("#footer li").eq(menu).addClass('active');
+    });
+</script>
+</body>
+</html>

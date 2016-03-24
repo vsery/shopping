@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+<!-- 搜索页面 -->
+<div data-role="page" id="search">
+    <div id="header" data-role="header" data-position="fixed" data-fullscreen="false">
+        <form class="ui-filterable">
+            <div data-role="fieldcontain">
+                <input name="search" id="search-txt" data-type="search" placeholder="请输入 关键字 ...">
+            </div>
+        </form>
+        <a href="javascript:;" class="sys sys_return ui-btn-left" data-rel="back"></a>
+    </div>
+    <!-- 历史搜索记录 -->
+    <script type="text/javascript">
+        function SearchHistoryRecordList($scope) {
+            $scope.slists = [
+                { name: "设计师" },
+                { name: "宝石设计师" },
+                { name: "高级设计师" },
+                { name: "VIP设计师" },
+                { name: "定制设计" },
+                { name: "珠宝设计师"}];
+        }
+    </script>
+    <div data-role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true" data-filter="true" data-input="#search-txt" ng-controller="SearchHistoryRecordList">
+            <li ng-repeat="list in slists">
+                <a href="#" data-ajax="false">{{list.name}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

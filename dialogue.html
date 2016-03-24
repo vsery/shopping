@@ -1,0 +1,92 @@
+<script type="text/javascript">
+    var menu=3;
+    function request(paras){
+    　　var url = location.href;
+    　　var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");
+    　　var paraObj = {}
+    　　for (i=0;j=paraString[i];i++){
+        　　paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);
+    　　}
+    　　var returnValue = paraObj[paras.toLowerCase()];
+    　　if(typeof(returnValue)=="undefined"){
+        　　return "";
+    　　}else{
+        　　return returnValue;
+    　　}
+　　}
+　　var id = request("id");
+</script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/swiper.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app>
+    <!-- 定制首页 -->
+    <div data-role="page">
+        <script type="text/javascript">
+            function DesignerInfo($scope) {
+                $scope.dgerinfo = {
+                    "id": 11,
+                    "name": "Designer",
+                    "img": "temp/activity (5).jpg",
+                    "eye": 9139,
+                    "zan": 12309,
+                    "experience": "自我介绍时的表达方法便有所不同自我介绍时的表达方法便有所不同",
+                    "dec": "自我介绍时的表达方法便有所不同.自我介绍时的表达方法便有所不同.自我介绍时的表达方法便有所不同.自我介绍时的表达方法便有所不同."
+                };
+            };
+        </script>
+        <div id="header" data-role="header" data-position="fixed" data-fullscreen="false" ng-controller="DesignerInfo">
+            <h1 class="text-left"><span>{{dgerinfo.name}}</span></h1>
+            <a href="javascript:;" class="sys sys_return ui-btn-left" data-rel="back"></a>
+        </div>
+        <div data-role="main" class="ui-content bggray">
+        <ul class="dialogue-item">
+            <li class="left">
+                <a href=""><img src="temp/fans (1).jpg" alt=""><name>奔波儿波</name></a>
+                <div class="dialogue-txt"><span class="arrow"></span>为什么小鑫的名字里有三个金呢?</div>
+            </li>
+            <li class="right">
+                <a href=""><img src="temp/fans (1).jpg" alt=""><name>波霸儿奔</name></a>
+                <div class="dialogue-txt"><span class="arrow"></span>他命里缺金，所以取名叫鑫，有些人命里缺水，就取名叫淼，还有些人命里缺木就叫森。</div>
+            </li>
+            <li class="left">
+                <a href=""><img src="temp/fans (1).jpg" alt=""><name>奔波儿波..</name></a>
+                <div class="dialogue-txt"><span class="arrow"></span>哪郭晶晶命里缺什么?</div>
+            </li>
+            <li class="right">
+                <a href=""><img src="temp/fans (1).jpg" alt=""><name>波霸儿奔</name></a>
+                <div class="dialogue-txt"><span class="arrow"></span>此处省略一百字....</div>
+            </li>
+        </ul>
+        </div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="..."  x-webkit-speech x-webkit-grammar="bUIltin:search">
+                <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Go!</button>
+            </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
