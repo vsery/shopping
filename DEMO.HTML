@@ -8,12 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
-    <link rel="stylesheet" type="text/css" href="system/css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="skin/001.css">
     <script type="text/javascript" src="system/js/jquery.min.js"></script>
     <script type="text/javascript" src="system/js/angular.min.js"></script>
-    <script type="text/javascript" src="system/js/swiper.min.js"></script>
     <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
     <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
     <!--[if lt IE 9]>
@@ -21,59 +19,102 @@
       <script src="system/js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-app="MyFilterApp">
- <script type="text/javascript">  
- function windowScopedFilter (input) {  
-      var output = [];  
-      angular.forEach(input, function(v,k){  
-           if (v.phone.contains("555")) {  
-                output.push(v);  
-           }  
-      });  
-      return output;       
- }  
- var myapp = angular.module('MyFilterApp', []);  
- myapp.filter('myfilter', function() {  
-   return function(input, param1) {  
-      console.log("------------------------------------------------- begin dump of custom parameters");  
-      console.log("input=",input);  
-      console.log("param1(string)=", param1);  
-      var args = Array.prototype.slice.call(arguments);  
-      console.log("arguments=", args.length);  
-      if (3<=args.length) {  
-           console.log("param2(string)=", args[2]);  
-      }  
-      if (4<=args.length) {  
-           console.log("param3(bool)=", args[3]);  
-      }  
-      console.log("------------------------------------------------- end dump of custom parameters");  
-      // filter  
-      if (5<=args.length) {  
-           return window[args[4]](input);  
-      }  
-      return input;  
-   };  
- });  
- myapp.controller('MyFilterController', ['$scope', function($scope) {  
-   $scope.friends = [{name:'John', phone:'555-1276'},  
-                      {name:'Annie', phone:'800-BIG-MARY'},  
-                      {name:'Mike', phone:'555-4321'},  
-                      {name:'Adam', phone:'555-5678'},  
-                      {name:'David', phone:'555-8765'},  
-                      {name:'Mikay', phone:'555-5678'}];  
- }]);  
- </script>  
- </head>  
- <body ng-app="MyFilterApp">  
- <div ng-controller="MyFilterController">  
-      <table id="searchTextResults">  
-       <tr><th>Name</th><th>Phone</th></tr>  
-       <tr ng-repeat="friend in friends |myfilter:'param1':'param2':true:'windowScopedFilter'">  
-        <td>{{friend.name}}</td>  
-        <td>{{friend.phone}}</td>  
-       </tr>  
-      </table>  
- </div>  
- <hr>  
-</body>  
+<body ng-app>
+    <!-- 登录页面 -->
+    <div data-role="page" id="login" class="bggray">
+        <div id="header" class="black" data-role="header" data-position="fixed" data-fullscreen="false">
+            <a href="javascript:;" class="sys sys_return2 ui-btn-left" data-rel="back"></a>
+            <h1 class="text-left">注册账号</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+
+            <section class="screen">
+                <div data-role="fieldcontain">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <div class="input-group-btn">
+                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Dropdown
+                                    <span class="caret"></span>
+                                </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">18~25</a></li>
+                                        <li><a href="#">26~35</a></li>
+                                        <li><a href="#">36~45</a></li>
+                                        <li><a href="#">46~55</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name-txt1" placeholder="用户名/手机/电子邮箱">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name-txt2" placeholder="用户名/手机/电子邮箱">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name-txt3" placeholder="用户名/手机/电子邮箱">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name-txt4" placeholder="用户名/手机/电子邮箱">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div id="sidebar"></div>
+        <div id="footer" data-role="footer" data-position="fixed" data-fullscreen="false"></div>
+    </div>
+<script type="text/javascript">    
+    var tophtml=$.ajax({ type:"GET", url:"system/header.html", async:false }); $("#header").html(tophtml.responseText); //ajax{加载顶部页面}
+    var foothtml=$.ajax({ type:"GET", url:"system/footer.html", async:false }); $("#footer").html(foothtml.responseText); //ajax{加载底部页面}
+    var sidehtml=$.ajax({ type:"GET", url:"system/sidebar.html", async:false }); $("#sidebar").html(sidehtml.responseText); //ajax{加载底部页面}
+    $( function () {
+        $("#footer li").eq(menu).addClass('active');
+        $('.carousel').carousel({ interval: 2000 });
+    });
+        $("#name-txt1").change(function() {
+            if( $(this).val() != "123" ){
+                alertbox(this,"warning","警告","请输入有效用户名");
+            }
+        });
+        $("#name-txt2").change(function() {
+            if( $(this).val() != "123" ){
+                alertbox(this,"success","恭喜","您通过了验证");
+            }
+        });
+        $("#name-txt3").change(function() {
+            if( $(this).val() != "123" ){
+                alertbox(this,"danger","错误","您输入的不是有效字符");
+            }
+        });
+        $("#name-txt4").change(function() {
+            if( $(this).val() != "123" ){
+                alertbox(this,"info","警告","请输入正确的账号");
+            }
+        });
+        function alertbox(e,color,title,info) {
+            var temp = "<div class='alert alert-"+color+" alert-dismissible fade in' role='alert'><a class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></a><strong>"+title+"</strong>"+info+"</div>";
+            $(e).parents(".form-group").append( String(temp) );
+            //alert($(e).parents(".form-group").html());
+        }
+</script>
+</body>
 </html>

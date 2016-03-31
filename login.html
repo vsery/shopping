@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="bggray" ng-app>
+    <!-- 登录页面 -->
+    <div data-role="page" id="login" class="bggray">
+        <div id="header" class="black" data-role="header" data-position="fixed" data-fullscreen="false">
+            <a href="javascript:;" class="sys sys_return2 ui-btn-left" data-rel="back"></a>
+            <h1 class="text-left">登录</h1>
+            <a href="register.html" data-ajax="false" class="sys ui-btn-right register-btn">注册</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form method="post" action="home.html">
+            <section class="screen">
+                <div data-role="fieldcontain">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="name" id="name-txt" placeholder="用户名/手机/电子邮箱">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <input type="password" name="password" id="password-txt" placeholder="密码">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <a href="" class="btn btn-max btn-gray" id="login-btn">登录</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <a href="" class="default" id="forget-password-btn">忘记密码</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="screen">
+                <i class="other title">其他登录方式</i>
+                <!-- 底部导航模拟数据 -->
+                <script type="text/javascript">
+                    function LoginList($scope) {
+                        $scope.otherlogins = [{
+                            "name": "QQ",
+                            "class": " text-info",
+                            "faclass": "fa fa-qq fa-2x",
+                            "src": "home.html"
+                        },{
+                            "name": "微信",
+                            "class": " text-success",
+                            "faclass": "fa fa-wechat fa-2x",
+                            "src": "barestone.html"
+                        }];
+                    };
+                </script>
+                <ul id="other-login" ng-controller="LoginList">
+                    <li ng-repeat="login in otherlogins">
+                        <a data-transition="slideup" data-ajax="false" href="{{login.src}}" class="{{login.class}}">
+                            <i class="{{login.faclass}}"></i>
+                            <span class="sys_title">{{login.name}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="system/js/system.js"></script>
+    <script type="text/javascript">
+        $("#name-txt").change(function() {
+            if ( regName( $(this).val() ) ) { alertbox(this,"warning","警告","请输入有效用户名"); }
+        });
+    </script>
+</body>
+</html>

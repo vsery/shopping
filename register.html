@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七宝商品</title>
+    <meta name="keywords" content="七宝珠宝旗舰店">
+    <meta name="description" content="七宝珠宝旗舰店">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" sizes="16x16" mask="" href="system/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="system/css/jquery.mobile.css">
+    <link rel="stylesheet" type="text/css" href="system/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="skin/001.css">
+    <script type="text/javascript" src="system/js/jquery.min.js"></script>
+    <script type="text/javascript" src="system/js/angular.min.js"></script>
+    <script type="text/javascript" src="system/js/jquery.mobile.min.js"></script>
+    <script type="text/javascript" src="system/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="system/js/html5.js"></script>
+      <script src="system/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="bggray" ng-app>
+    <!-- 登录页面 -->
+    <div data-role="page" id="register" class="bggray">
+        <div id="header" class="black" data-role="header" data-position="fixed" data-fullscreen="false">
+            <a href="javascript:;" class="sys sys_return2 ui-btn-left" data-rel="back"></a>
+            <h1 class="text-left">注册账号</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form method="post" action="login.html">
+            <section class="screen">
+                <div data-role="fieldcontain">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="text" name="phone" id="phone-txt" placeholder="手机号">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">                        
+                            <div class="form-group">
+                                <input type="text" name="name" id="name-txt" placeholder="用户名">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="password" name="password" id="password-txt" placeholder="密码">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <input type="password" name="password" id="againpassword-txt" placeholder="再次输入">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="手机验证码:">
+                                <span class="input-group-btn">
+                                    <a class="btn btn-default" disabled='disabled'>获取验证码</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 dropdown-toggle">
+                            <input type="text" class="form-control" placeholder="年龄:" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <ul class="dropdown-menu">
+                                <li><a href="#">18~25</a></li>
+                                <li><a href="#">26~35</a></li>
+                                <li><a href="#">36~45</a></li>
+                                <li><a href="#">46~55</a></li>
+                            </ul>                        
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-center">
+                            <a href="" class="btn btn-max btn-gray">确定</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="system/js/system.js"></script>
+    <script type="text/javascript">
+        $("input.form-control").focus(function() {
+            if( $(this).attr("data-toggle") == "dropdown" ){
+                $(this).parents(".dropdown-toggle").addClass('open');
+            }
+        });
+        $(".dropdown-menu li a").click(function() {
+            $(this).parents(".dropdown-toggle").find("input.form-control").val($(this).text());
+            $(this).parents(".dropdown-toggle").removeClass('open');
+        });
+        $("#phone-txt").change(function() {
+            if ( regPhone( $(this).val() ) ) { alertbox(this,"danger","警告","请输入有效手机号"); }
+        });
+        $("#name-txt").change(function() {
+            if ( regName( $(this).val() ) ) { alertbox(this,"warning","警告","请输入有效用户名"); }
+        });
+        $("#password-txt").change(function() {
+            if ( regSN( $(this).val(), 6 ) ) { alertbox(this,"warning","警告","请输入不少于6位密码"); }
+        });
+        $("#againpassword-txt").change(function() {
+            if ( !( $(this).val() == $("#password-txt").val() ) ) { alertbox(this,"warning","警告","请输入重复的密码"); }
+        });
+    </script>
+</body>
+</html>
